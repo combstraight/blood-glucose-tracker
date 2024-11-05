@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[11.1.0, )"
             },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
             "Avalonia.Desktop": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -57,6 +61,18 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.1.0, )"
+            },
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.3.2, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.0.1, )"
+            },
+            "LiveChartsCore.SkiaSharpView.Avalonia": {
+              "target": "Package",
+              "version": "[2.0.0-rc4.5, )"
             }
           },
           "imports": [

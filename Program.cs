@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace blood_glucose_tracker;
+namespace BloodGlucoseTracker;
 
 class Program
 {

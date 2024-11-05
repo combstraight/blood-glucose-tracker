@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/yoonsukoh/Work/BloodGlucoseTracker/BloodGlucoseTracker.csproj": {}
+  },
+  "projects": {
+    "/Users/yoonsukoh/Work/BloodGlucoseTracker/BloodGlucoseTracker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/yoonsukoh/Work/BloodGlucoseTracker/BloodGlucoseTracker.csproj",
+        "projectName": "BloodGlucoseTracker",
+        "projectPath": "/Users/yoonsukoh/Work/BloodGlucoseTracker/BloodGlucoseTracker.csproj",
+        "packagesPath": "/Users/yoonsukoh/.nuget/packages/",
+        "outputPath": "/Users/yoonsukoh/Work/BloodGlucoseTracker/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/yoonsukoh/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Avalonia.Diagnostics": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Avalonia.Fonts.Inter": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "Avalonia.Themes.Fluent": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.3.2, )"
+            },
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.0.1, )"
+            },
+            "LiveChartsCore.SkiaSharpView.Avalonia": {
+              "target": "Package",
+              "version": "[2.0.0-rc4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.8_1/libexec/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

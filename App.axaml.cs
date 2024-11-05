@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace blood_glucose_tracker;
+namespace BloodGlucoseTracker;
 
 public partial class App : Application
 {

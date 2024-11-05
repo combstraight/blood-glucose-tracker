@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:BloodGlucoseTracker.Models"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:dataGrid="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+             x:Class="BloodGlucoseTracker.Views.DailyLogView">
+    <StackPanel Margin="20">
+        <TextBlock Text="Daily Log" 
+                   FontSize="24" 
+                   FontWeight="Bold"
+                   Foreground="White"
+                   Margin="0,0,0,20"/>
+        <DataGrid Name="ReadingsGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="False"
+                  Height="200"
+                  GridLinesVisibility="All"
+                  x:DataType="models:GlucoseReading">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Fasting Glucose" Binding="{Binding FastingGlucose}"/>
+                <DataGridTextColumn Header="Pre Meal Glucose" Binding="{Binding PreMealGlucose}"/>
+                <DataGridTextColumn Header="Post Meal 1Hr" Binding="{Binding PostMeal1Hr}"/>
+                <DataGridTextColumn Header="Post Meal 2Hr" Binding="{Binding PostMeal2Hr}"/>
+                <DataGridTextColumn Header="Meal" Binding="{Binding Meal}"/>
+                <DataGridCheckBoxColumn Header="Exercise Done" 
+                                        Binding="{Binding ExerciseDone}"/>
+                <DataGridTextColumn Header="Sleep Hours" Binding="{Binding SleepHours}"/>
+                <DataGridTemplateColumn Header="Stress">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate x:DataType="models:GlucoseReading">
+                            <ComboBox SelectedItem="{Binding Stress}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <models:StressLevel>Low</models:StressLevel>
+                                <models:StressLevel>Medium</models:StressLevel>
+                                <models:StressLevel>High</models:StressLevel>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="+" 
+                Click="OnAddRow"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Left"
+                Width="20"
+                Height="20"
+                Background="Gray"
+                Foreground="White"
+                CornerRadius="5"
+                FontSize="10"
+                FontWeight="Bold"
+                Padding="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+    </StackPanel>
+</UserControl>
