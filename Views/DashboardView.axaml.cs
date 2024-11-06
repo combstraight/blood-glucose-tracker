@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Avalonia.Controls;
 using LiveChartsCore;
@@ -18,7 +19,11 @@ public partial class DashboardView : UserControl
 
     private void SetupCharts()
     {
-        var readings = App.MainViewModel.Readings.OrderBy(r => r.Date).ToList();
+        var readings = App.MainViewModel.Readings.OrderBy(r =>
+        {
+            if (r.Date != null) return DateTime.Parse(r.Date);
+            return default;
+        }).ToList();
         var fastingChart = this.FindControl<CartesianChart>("FastingChart");
         if (fastingChart != null)
         {
@@ -44,4 +49,8 @@ public partial class DashboardView : UserControl
             };
         }
     }
+}
+
+internal class DatimeTime
+{
 }
