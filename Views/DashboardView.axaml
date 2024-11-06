@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             x:Class="BloodGlucoseTracker.Views.DashboardView">
+     <ScrollViewer>
+         <StackPanel Margin="20" Spacing="20" >
+             <TextBlock Text="Dashboard"  
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="0,0,0,20" />
+             <!-- Fasting Glucose Chart -->
+             <Border Background="#22000000" CornerRadius="8" Padding="20">
+                 <StackPanel
+                     >
+                     <TextBlock>Fasting Glucose Trends</TextBlock>
+                     <lvc:CartesianChart Name="FastingChart" Height="300"/>
+                 </StackPanel>
+             </Border>
+         </StackPanel>
+     </ScrollViewer>
+</UserControl>

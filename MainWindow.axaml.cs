@@ -46,12 +46,8 @@ namespace BloodGlucoseTracker
             {
                 "Daily Log" => new DailyLogView(),
                 "Weekly Log" => new WeeklyLogView(),
-                _ => new TextBlock
-                {
-                    Text = $"Selected: {viewName}",
-                    HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
-                    VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
-                }
+                "Dashboard" => new DashboardView(),
+                _ => throw new ArgumentOutOfRangeException()
             };
         }
     }
