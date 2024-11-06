@@ -27,28 +27,33 @@ namespace BloodGlucoseTracker.Views
             var grid = this.FindControl<DataGrid>("ReadingsGrid");
             if (grid != null)
             {
-                grid.ItemsSource = _readings;
+                grid.ItemsSource = App.MainViewModel.Readings;
             }
-
-            _readings.Add(new GlucoseReading 
-            { 
-                Date = "",
-                Time = "",
-                FastingGlucose = null,
-                PreMealGlucose = null,
-                PostMeal1Hr = null,
-                PostMeal2Hr = null,
-                Meal = null,
-                ExerciseDone = null,
-                SleepHours = null,
-                Stress = null,
-                Notes = string.Empty
-            });
+            
+            Console.WriteLine($"Number of readings: {App.MainViewModel.Readings.Count}");  // Debug line
+            
+            if (App.MainViewModel.Readings.Count == 0)
+            {
+                App.MainViewModel.Readings.Add(new GlucoseReading 
+                { 
+                    Date = "",
+                    Time = "",
+                    FastingGlucose = null,
+                    PreMealGlucose = null,
+                    PostMeal1Hr = null,
+                    PostMeal2Hr = null,
+                    Meal = null,
+                    ExerciseDone = null,
+                    SleepHours = null,
+                    Stress = null,
+                    Notes = string.Empty
+                });
+            }
         }
 
         private void OnAddRow(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            _readings.Add(new GlucoseReading 
+            App.MainViewModel.Readings.Add(new GlucoseReading 
             { 
                 Date = "",
                 Time = "",

@@ -3,7 +3,9 @@
         x:Class="BloodGlucoseTracker.MainWindow"
         Title="Blood Glucose Tracker"
         Width="800"
-        Height="600">
+        Height="600"
+        xmlns:models="clr-namespace:BloodGlucoseTracker.ViewModels"
+        >
     <Window.Styles>
         <Style Selector="Button">
             <Setter Property="Background" Value="Transparent"/>
@@ -19,12 +21,24 @@
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
     </Window.Styles>
+    <NativeMenu.Menu>
+        <NativeMenu>
+            <NativeMenuItem Header="File">
+                <NativeMenuItem.Menu>
+                    <NativeMenu x:DataType="models:MainViewModel">
+                        <NativeMenuItem Header="Save" Command="{Binding SaveFileCommand}" Gesture="Cmd+S" />
+                        <NativeMenuItem Header="Open" Command="{Binding OpenFileCommand}" Gesture="Cmd+O"/>
+                    </NativeMenu>
+                </NativeMenuItem.Menu>
+            </NativeMenuItem>
+        </NativeMenu>
+    </NativeMenu.Menu>
     <DockPanel>
         <!-- Side Navigation Panel -->
         <StackPanel x:Name="NavPanel" DockPanel.Dock="Left" Width="200" Background="#8B5CF6">
-            <Button Content="Dashboard" />
             <Button Content="Daily Log" />
             <Button Content="Weekly Log" />
+            <Button Content="Dashboard" />
         </StackPanel>
         <!-- Main Content Area -->
         <ContentControl Name="ContentArea" />
