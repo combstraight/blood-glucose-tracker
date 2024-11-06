@@ -42,21 +42,17 @@ namespace BloodGlucoseTracker
             if (sender is not Button button) return;
             var viewName = button.Content?.ToString();
 
-            if (viewName == "Daily Log")
+            _contentArea.Content = viewName switch
             {
-                _contentArea.Content = new DailyLogView();
-            }
-
-            else
-            {
-                _contentArea.Content = new TextBlock
+                "Daily Log" => new DailyLogView(),
+                "Weekly Log" => new WeeklyLogView(),
+                _ => new TextBlock
                 {
                     Text = $"Selected: {viewName}",
                     HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
                     VerticalAlignment = Avalonia.Layout.VerticalAlignment.Center
-                };
-            
-            }
+                }
+            };
         }
     }
 }

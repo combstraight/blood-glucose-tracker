@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="clr-namespace:BloodGlucoseTracker.Models"
+             x:Class="BloodGlucoseTracker.Views.WeeklyLogView">
+    <StackPanel Margin="20">
+        <TextBlock Text="Weekly Log" FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   Margin="0,0,0,20"/>
+        <DataGrid Name="WeeklyGrid"
+                  AutoGenerateColumns="False"
+                  Height="200"
+                  GridLinesVisibility="All"
+                  x:DataType="models:WeeklyStats">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Week" 
+                                    Binding="{Binding WeekStartDate}"/>
+                <DataGridTextColumn Header="Avg Fasting" 
+                                    Binding="{Binding AvgFasting}"/>
+                <DataGridTextColumn Header="Avg Pre-Meal" 
+                                    Binding="{Binding AvgPreMeal}"/>
+                <DataGridTextColumn Header="Avg 1hr Post" 
+                                    Binding="{Binding AvgPost1Hr}"/>
+                <DataGridTextColumn Header="Avg 2hr Post" 
+                                    Binding="{Binding AvgPost2Hr}"/>
+                <DataGridTextColumn Header="# of Readings" 
+                                    Binding="{Binding ReadingsCount}"/>
+            </DataGrid.Columns>            
+        </DataGrid>
+    </StackPanel>
+</UserControl>
