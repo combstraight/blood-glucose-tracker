@@ -14,7 +14,7 @@ public class FileService
 
     private readonly string _settingsPath = "settings.json";
 
-    public async Task SaveReadings(ObservableCollection<GlucoseReading> readings, string filePath)
+    public async Task SaveReadings(ObservableCollection<GlucoseReading?> readings, string filePath)
     {
         try
         {

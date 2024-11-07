@@ -24,7 +24,7 @@ namespace BloodGlucoseTracker
             {
                 if (child is Button button)
                 {
-                    button.Click += NavigationButton_Click;
+                    button.Click += NavigationButtonClick;
                 }
             }
 
@@ -37,7 +37,7 @@ namespace BloodGlucoseTracker
             AvaloniaXamlLoader.Load(this);
         }
 
-        private void NavigationButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void NavigationButtonClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             if (sender is not Button button) return;
             var viewName = button.Content?.ToString();

@@ -15,7 +15,7 @@ public class MainViewModel
 {
     private readonly FileService _fileService;
     private string? _currentFilePath;
-    public ObservableCollection<GlucoseReading> Readings { get; private set; }
+    public ObservableCollection<GlucoseReading?> Readings { get; private set; }
 
     public ICommand OpenFileCommand { get; }
     public ICommand SaveFileCommand { get; }
@@ -23,7 +23,7 @@ public class MainViewModel
     public MainViewModel()
     {
         _fileService = new FileService();
-        Readings = new ObservableCollection<GlucoseReading>();
+        Readings = new ObservableCollection<GlucoseReading?>();
 
         OpenFileCommand = new RelayCommand(async () =>
         {

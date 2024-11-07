@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -67,6 +68,15 @@ namespace BloodGlucoseTracker.Views
                 Stress = null,
                 Notes = string.Empty
             });
+        }
+
+        private void OnDeleteRow(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            if (!App.MainViewModel.Readings.Any())
+            {
+                return;
+            }
+            App.MainViewModel.Readings.RemoveAt(App.MainViewModel.Readings.Count() - 1);
         }
     }
 }
