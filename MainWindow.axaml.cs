@@ -8,7 +8,7 @@ namespace BloodGlucoseTracker
 {
     public partial class MainWindow : Window
     {
-        private readonly ContentControl _contentArea;
+        private readonly ContentControl? _contentArea;
 
         public MainWindow()
         {
@@ -27,9 +27,6 @@ namespace BloodGlucoseTracker
                     button.Click += NavigationButtonClick;
                 }
             }
-
-            // Start with empty content for now
-            // We'll add views as we create them
         }
 
         private void InitializeComponent()
@@ -42,13 +39,14 @@ namespace BloodGlucoseTracker
             if (sender is not Button button) return;
             var viewName = button.Content?.ToString();
 
-            _contentArea.Content = viewName switch
-            {
-                "Daily Log" => new DailyLogView(),
-                "Weekly Log" => new WeeklyLogView(),
-                "Dashboard" => new DashboardView(),
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            if (_contentArea != null)
+                _contentArea.Content = viewName switch
+                {
+                    "Daily Log" => new DailyLogView(),
+                    "Weekly Log" => new WeeklyLogView(),
+                    "Dashboard" => new DashboardView(),
+                    _ => throw new ArgumentOutOfRangeException()
+                };
         }
     }
 }

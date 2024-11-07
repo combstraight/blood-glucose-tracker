@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -31,14 +32,12 @@ namespace BloodGlucoseTracker.Views
                 grid.ItemsSource = App.MainViewModel.Readings;
             }
             
-            Console.WriteLine($"Number of readings: {App.MainViewModel.Readings.Count}");  // Debug line
-            
             if (App.MainViewModel.Readings.Count == 0)
             {
                 App.MainViewModel.Readings.Add(new GlucoseReading 
                 { 
-                    Date = "",
-                    Time = "",
+                    Date = DateTime.Today.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
+                    Time = DateTime.Now.ToString("t"),
                     FastingGlucose = null,
                     PreMealGlucose = null,
                     PostMeal1Hr = null,
@@ -56,8 +55,8 @@ namespace BloodGlucoseTracker.Views
         {
             App.MainViewModel.Readings.Add(new GlucoseReading 
             { 
-                Date = "",
-                Time = "",
+                Date = DateTime.Today.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
+                Time = DateTime.Now.ToString("t"),
                 FastingGlucose = null,
                 PreMealGlucose = null,
                 PostMeal1Hr = null,
