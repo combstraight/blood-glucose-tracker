@@ -31,6 +31,11 @@ public partial class WeeklyLogView : UserControl
 
     private string GetWeekStart(string date)
     {
+        if (string.IsNullOrEmpty(date))
+        {
+            return date;
+        }
+        
         try
         {
             var dateTime = DateTime.Parse(date);

@@ -1,23 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "V9bUhpCIdCc=",
+  "dgSpecHash": "zG/CI9rtirtlMPOTWW4rLHkNukkptW76hDMZHGWqLZAC7slIIEP3T/CfG6gf9AC8gq+hApykLmUv+ra23kPOxg==",
   "success": true,
   "projectFilePath": "/Users/yoonsukoh/Work/blood-glucose-tracker/blood-glucose-tracker.csproj",
   "expectedPackageFiles": [
     "/Users/yoonsukoh/.nuget/packages/avalonia/11.1.0/avalonia.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.angle.windows.natives/2.1.22045.20230930/avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.buildservices/0.0.29/avalonia.buildservices.0.0.29.nupkg.sha512",
-    "/Users/yoonsukoh/.nuget/packages/avalonia.controls.colorpicker/11.1.0/avalonia.controls.colorpicker.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.controls.datagrid/11.1.0/avalonia.controls.datagrid.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.desktop/11.1.0/avalonia.desktop.11.1.0.nupkg.sha512",
-    "/Users/yoonsukoh/.nuget/packages/avalonia.diagnostics/11.1.0/avalonia.diagnostics.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.fonts.inter/11.1.0/avalonia.fonts.inter.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.freedesktop/11.1.0/avalonia.freedesktop.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.native/11.1.0/avalonia.native.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.remote.protocol/11.1.0/avalonia.remote.protocol.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.skia/11.1.0/avalonia.skia.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.themes.fluent/11.1.0/avalonia.themes.fluent.11.1.0.nupkg.sha512",
-    "/Users/yoonsukoh/.nuget/packages/avalonia.themes.simple/11.1.0/avalonia.themes.simple.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.win32/11.1.0/avalonia.win32.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/avalonia.x11/11.1.0/avalonia.x11.11.1.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/communitytoolkit.mvvm/8.3.2/communitytoolkit.mvvm.8.3.2.nupkg.sha512",
@@ -39,7 +36,10 @@
     "/Users/yoonsukoh/.nuget/packages/skiasharp.nativeassets.win32/2.88.8/skiasharp.nativeassets.win32.2.88.8.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/system.io.pipelines/6.0.0/system.io.pipelines.6.0.0.nupkg.sha512",
     "/Users/yoonsukoh/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
-    "/Users/yoonsukoh/.nuget/packages/tmds.dbus.protocol/0.16.0/tmds.dbus.protocol.0.16.0.nupkg.sha512"
+    "/Users/yoonsukoh/.nuget/packages/tmds.dbus.protocol/0.16.0/tmds.dbus.protocol.0.16.0.nupkg.sha512",
+    "/Users/yoonsukoh/.nuget/packages/microsoft.netcore.app.runtime.osx-x64/8.0.8/microsoft.netcore.app.runtime.osx-x64.8.0.8.nupkg.sha512",
+    "/Users/yoonsukoh/.nuget/packages/microsoft.aspnetcore.app.runtime.osx-x64/8.0.8/microsoft.aspnetcore.app.runtime.osx-x64.8.0.8.nupkg.sha512",
+    "/Users/yoonsukoh/.nuget/packages/microsoft.netcore.app.host.osx-x64/8.0.8/microsoft.netcore.app.host.osx-x64.8.0.8.nupkg.sha512"
   ],
   "logs": []
 }

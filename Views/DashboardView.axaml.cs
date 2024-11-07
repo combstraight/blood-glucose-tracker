@@ -21,7 +21,7 @@ public partial class DashboardView : UserControl
     {
         var readings = App.MainViewModel.Readings.OrderBy(r =>
         {
-            if (r.Date != null) return DateTime.Parse(r.Date);
+            if (!string.IsNullOrEmpty(r.Date)) return DateTime.Parse(r.Date);
             return default;
         }).ToList();
         var fastingChart = this.FindControl<CartesianChart>("FastingChart");
@@ -49,8 +49,4 @@ public partial class DashboardView : UserControl
             };
         }
     }
-}
-
-internal class DatimeTime
-{
 }
