@@ -16,6 +16,7 @@ namespace BloodGlucoseTracker
             
             // Get reference to content area
             _contentArea = this.FindControl<ContentControl>("ContentArea");
+            if (_contentArea != null) _contentArea.Content = new DailyLogView();
 
             // Set up button click handlers
             var stackPanel = this.FindControl<StackPanel>("NavPanel");

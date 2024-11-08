@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("blood-glucose-tracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63e77c2e20b8c2dbeeaff08497e48e69d8f393d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9af377b1580ae276b728ba7835ba7132da5fe67")]
 [assembly: System.Reflection.AssemblyProductAttribute("blood-glucose-tracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("blood-glucose-tracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
