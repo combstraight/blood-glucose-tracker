@@ -26,8 +26,10 @@
             <NativeMenuItem Header="File">
                 <NativeMenuItem.Menu>
                     <NativeMenu x:DataType="models:MainViewModel">
-                        <NativeMenuItem Header="Save" Command="{Binding SaveFileCommand}" Gesture="Cmd+S" />
+                        <NativeMenuItem Header="New" Command="{Binding NewFileCommand}" Gesture="Cmd+N"/> 
                         <NativeMenuItem Header="Open" Command="{Binding OpenFileCommand}" Gesture="Cmd+O"/>
+                        <NativeMenuItem Header="Save" Command="{Binding SaveFileCommand}" Gesture="Cmd+S" />
+                        <NativeMenuItem Header="Save as..." Command="{Binding SaveFileAsCommand}" Gesture="Cmd+Shift+S" />
                     </NativeMenu>
                 </NativeMenuItem.Menu>
             </NativeMenuItem>

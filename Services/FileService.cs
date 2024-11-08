@@ -14,6 +14,11 @@ public class FileService
 
     private readonly string _settingsPath = "settings.json";
 
+    public class Settings
+    {
+        public string LastFilePath { get; set; }
+    }
+
     public async Task SaveReadings(ObservableCollection<GlucoseReading?> readings, string filePath)
     {
         try
@@ -44,6 +49,25 @@ public class FileService
 
     }
 
+    public class LoadResult
+    {
+        public ObservableCollection<GlucoseReading> Readings { get; set; }
+        public string LastFilePath { get; set; }
+    }
+    
+    public async Task<LoadResult> LoadFromLastFilePath()
+    {
+       
+        var json = File.ReadAllText(_settingsPath);
+        var filePath = JsonSerializer.Deserialize<Settings>(json)?.LastFilePath;
+        var readings = string.IsNullOrEmpty(filePath) ? new ObservableCollection<GlucoseReading>() : await LoadReadings(filePath);
+        return new LoadResult
+        {
+            Readings = readings,
+            LastFilePath = filePath ?? string.Empty
+        };
+    }
+
     public async Task SaveSettingsAsync(ObservableCollection<GlucoseReading> readings, string path)
     {
         var json = JsonSerializer.Serialize(readings);
@@ -66,4 +90,6 @@ public class FileService
             Console.WriteLine($"Error saving settings: {ex.Message}");
         }
     }
+
+  
 }

@@ -15,15 +15,23 @@ public class MainViewModel
 {
     private readonly FileService _fileService;
     private string? _currentFilePath;
-    public ObservableCollection<GlucoseReading?> Readings { get; private set; }
-
+    public ObservableCollection<GlucoseReading> Readings { get; private set; }
+    public ICommand NewFileCommand { get; }
     public ICommand OpenFileCommand { get; }
     public ICommand SaveFileCommand { get; }
+    public ICommand SaveFileAsCommand { get; }
 
     public MainViewModel()
     {
         _fileService = new FileService();
         Readings = new ObservableCollection<GlucoseReading?>();
+        InitiliazeAsync();
+
+        NewFileCommand = new RelayCommand(async () =>
+        {
+            _currentFilePath = null;
+            Readings.Clear();
+        });
 
         OpenFileCommand = new RelayCommand(async () =>
         {
@@ -54,30 +62,45 @@ public class MainViewModel
         {
             if (string.IsNullOrEmpty(_currentFilePath))
             {
-                var dialog = new SaveFileDialog
-                {
-                    DefaultExtension = "json",
-                    Filters = new List<FileDialogFilter>
-                    {
-                        new FileDialogFilter
-                        {
-                            Name = "JSON files (*.json)|*.json",
-                        }
-                    }
-                };
-                if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime
-                    {
-                        MainWindow: not null
-                    } desktop)
-                {
-                    var result = await dialog.ShowAsync(desktop.MainWindow);
-                    if (string.IsNullOrEmpty(result)) return;
-                    _currentFilePath = result;
+                await SaveFileAs();
+            }
+            else
+            {
+                await _fileService.SaveReadings(Readings, _currentFilePath);
+            }
+        });
 
+        SaveFileAsCommand = new RelayCommand(async () =>
+        {
+            await SaveFileAs();
+        });
+    }
+
+    private async Task SaveFileAs()
+    {
+        var dialog = new SaveFileDialog
+        {
+            DefaultExtension = "json",
+            Filters = new List<FileDialogFilter>
+            {
+                new FileDialogFilter
+                {
+                    Name = "JSON files (*.json)|*.json",
                 }
             }
-            await _fileService.SaveReadings(Readings, _currentFilePath);
-        });
+        };
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime
+            {
+                MainWindow: not null
+            } desktop)
+        {
+            var result = await dialog.ShowAsync(desktop.MainWindow);
+            if (string.IsNullOrEmpty(result)) return;
+            _currentFilePath = result;
+
+        }
+                
+        await _fileService.SaveReadings(Readings, _currentFilePath);
     }
 
     private async Task LoadFile(string path)
@@ -89,5 +112,15 @@ public class MainViewModel
             Readings.Add(reading);
         }
         _currentFilePath = path;
+    }
+
+    private async void InitiliazeAsync()
+    {
+        var results = await _fileService.LoadFromLastFilePath();
+        _currentFilePath = results.LastFilePath;
+        foreach (var result in results.Readings)
+        {
+            Readings.Add(result);
+        }
     }
 }

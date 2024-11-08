@@ -31,24 +31,6 @@ namespace BloodGlucoseTracker.Views
             {
                 grid.ItemsSource = App.MainViewModel.Readings;
             }
-            
-            if (App.MainViewModel.Readings.Count == 0)
-            {
-                App.MainViewModel.Readings.Add(new GlucoseReading 
-                { 
-                    Date = DateTime.Today.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture),
-                    Time = DateTime.Now.ToString("t"),
-                    FastingGlucose = null,
-                    PreMealGlucose = null,
-                    PostMeal1Hr = null,
-                    PostMeal2Hr = null,
-                    Meal = null,
-                    ExerciseDone = null,
-                    SleepHours = null,
-                    Stress = null,
-                    Notes = string.Empty
-                });
-            }
         }
 
         private void OnAddRow(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
