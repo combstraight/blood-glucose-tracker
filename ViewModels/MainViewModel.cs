@@ -24,8 +24,8 @@ public class MainViewModel
     public MainViewModel()
     {
         _fileService = new FileService();
-        Readings = new ObservableCollection<GlucoseReading?>();
-        InitiliazeAsync();
+        Readings = new ObservableCollection<GlucoseReading>();
+        InitializeAsync();
 
         NewFileCommand = new RelayCommand(async () =>
         {
@@ -99,8 +99,8 @@ public class MainViewModel
             _currentFilePath = result;
 
         }
-                
-        await _fileService.SaveReadings(Readings, _currentFilePath);
+
+        if (_currentFilePath != null) await _fileService.SaveReadings(Readings, _currentFilePath);
     }
 
     private async Task LoadFile(string path)
@@ -114,10 +114,11 @@ public class MainViewModel
         _currentFilePath = path;
     }
 
-    private async void InitiliazeAsync()
+    private async void InitializeAsync()
     {
         var results = await _fileService.LoadFromLastFilePath();
-        _currentFilePath = results.LastFilePath;
+        _currentFilePath = results.LastLoadedFilePath;
+        if (results.Readings == null) return;
         foreach (var result in results.Readings)
         {
             Readings.Add(result);

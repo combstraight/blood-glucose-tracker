@@ -10,16 +10,14 @@ namespace BloodGlucoseTracker.Services;
 
 public class FileService
 {
-    private const string LastFilePath = "LastFilePath";
-
     private readonly string _settingsPath = "settings.json";
 
-    public class Settings
+    public class Settings(string lastFilePath)
     {
-        public string LastFilePath { get; set; }
+        public string LastFilePath { get; init; } = lastFilePath;
     }
 
-    public async Task SaveReadings(ObservableCollection<GlucoseReading?> readings, string filePath)
+    public async Task SaveReadings(ObservableCollection<GlucoseReading> readings, string filePath)
     {
         try
         {
@@ -51,8 +49,8 @@ public class FileService
 
     public class LoadResult
     {
-        public ObservableCollection<GlucoseReading> Readings { get; set; }
-        public string LastFilePath { get; set; }
+        public ObservableCollection<GlucoseReading>? Readings { get; init; }
+        public string LastLoadedFilePath { get; init; } = "";
     }
     
     public async Task<LoadResult> LoadFromLastFilePath()
@@ -64,7 +62,7 @@ public class FileService
         return new LoadResult
         {
             Readings = readings,
-            LastFilePath = filePath ?? string.Empty
+            LastLoadedFilePath = filePath ?? string.Empty
         };
     }
 
@@ -81,7 +79,7 @@ public class FileService
         {
             var settings = new Dictionary<string, string>
             {
-                { LastFilePath, filePath }
+                { "LastFilePath", filePath }
             };
             File.WriteAllText(_settingsPath, JsonSerializer.Serialize(settings));
         }

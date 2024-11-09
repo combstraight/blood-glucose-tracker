@@ -22,6 +22,10 @@
     <PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc4.5" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);0618</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <Folder Include="Assets\" />
   </ItemGroup>
